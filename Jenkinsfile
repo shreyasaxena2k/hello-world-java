@@ -1,8 +1,5 @@
 pipeline {
-    agent any
-    // tools {
-    //     maven "MAVEN"
-    // }
+    agent {label 'jenkins-slave'}
     stages{
         stage("Clone code from GitHub") {
             steps {
@@ -13,7 +10,8 @@ pipeline {
         }
         stage('Build'){
             steps{
-                 sh script: 'mvn clean package'
+                //  sh script: 'mvn clean package'
+                 sh echo "building"
             }
         }
 
